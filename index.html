@@ -208,109 +208,40 @@
     50%      { box-shadow: 0 0 18px rgba(201, 174, 126, 0.95); }
   }
 
-  /* 아치 통창 — 이중 프레임 */
-  .arch-wrap {
+  /* 아치 통창 — 생성 일러스트 */
+  .arch-art {
     position: relative;
-    width: min(282px, 76vw);   /* 래퍼 = 창 너비 (기단이 래퍼를 넓혀 창이 좌측 정렬되던 버그 수정) */
+    width: min(302px, 80vw);
     margin: 0 auto 46px;
   }
-  .arch-window {
+  .arch-art img {
+    display: block;
     width: 100%;
-    aspect-ratio: 3 / 4.5;
-    border: 1px solid var(--brass);
-    border-radius: 999px 999px 0 0;
-    position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(ellipse 140% 68% at 50% 0%, rgba(255, 243, 210, 0.85), transparent 60%),
-      linear-gradient(178deg, #FCF8ED 0%, #F6EEDF 48%, #EFE3CD 100%);
-    box-shadow:
-      0 24px 48px -20px rgba(82, 64, 47, 0.28),
-      inset 0 0 60px rgba(255, 248, 228, 0.6);
+    height: auto;
+    filter: saturate(0.85) drop-shadow(0 22px 40px rgba(82, 64, 47, 0.20));
   }
-  /* 외곽 이중 헤어라인 */
-  .arch-wrap::before {
-    content: "";
+  /* 유리면 텍스트 오버레이 — 창살 위 소프트 글로우 */
+  .arch-art .inner {
     position: absolute;
-    inset: -12px;
-    border: 1px solid rgba(176, 141, 87, 0.35);
-    border-radius: 999px 999px 0 0;
-    pointer-events: none;
-  }
-  /* 키스톤 */
-  .arch-wrap::after {
-    content: "";
-    position: absolute;
-    top: -17px;
-    left: 50%;
-    width: 7px; height: 7px;
-    margin-left: -3.5px;
-    background: var(--brass);
-    transform: rotate(45deg);
-    box-shadow: 0 0 10px rgba(201, 174, 126, 0.6);
-  }
-  /* 내부 헤어라인 */
-  .arch-window .hairline {
-    position: absolute;
-    inset: 9px;
-    border: 1px solid rgba(176, 141, 87, 0.4);
-    border-radius: 999px 999px 0 0;
-    pointer-events: none;
-    z-index: 2;
-  }
-  /* 기단 몰딩 — 창보다 좌우 20px씩 넓게, 중앙 유지 */
-  .arch-plinth {
-    width: calc(100% + 40px);
-    margin: 12px 0 0 -20px;
-    height: 6px;
-    border-top: 1px solid var(--brass-soft);
-    border-bottom: 1px solid rgba(176, 141, 87, 0.35);
-  }
-  /* 창살 */
-  .arch-window .mullions {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to right, transparent calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
-      repeating-linear-gradient(to bottom, transparent 0 25%, rgba(176, 141, 87, 0.55) 25%, rgba(176, 141, 87, 0.55) calc(25% + 1px), transparent calc(25% + 1px) 26%);
-    opacity: 0.38;
-    pointer-events: none;
-  }
-  /* 창밖 사이프러스 */
-  .arch-window .garden {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 27%;
-    background:
-      radial-gradient(ellipse 26px 62px at 14% 100%, rgba(96, 117, 91, 0.35), transparent 70%),
-      radial-gradient(ellipse 19px 46px at 32% 100%, rgba(96, 117, 91, 0.26), transparent 70%),
-      radial-gradient(ellipse 30px 68px at 57% 100%, rgba(96, 117, 91, 0.32), transparent 70%),
-      radial-gradient(ellipse 22px 52px at 79% 100%, rgba(96, 117, 91, 0.26), transparent 70%),
-      radial-gradient(ellipse 16px 38px at 93% 100%, rgba(96, 117, 91, 0.2), transparent 70%);
-    pointer-events: none;
-  }
-  .arch-window .inner {
-    position: absolute;
-    inset: 0;
+    left: 17%; right: 17%;
+    top: 30%; bottom: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    z-index: 3;
-    padding: 0 20px;
-    /* 이름 뒤 창살을 지우는 소프트 글로우 */
-    background: radial-gradient(ellipse 72% 46% at 50% 50%,
-      rgba(252, 248, 237, 0.96) 40%, rgba(252, 248, 237, 0) 78%);
+    gap: 18px;
+    background: radial-gradient(ellipse 92% 60% at 50% 50%,
+      rgba(252, 248, 237, 0.98) 46%, rgba(252, 248, 237, 0) 80%);
   }
-  .arch-window .small-word {
+  .arch-art .small-word {
     font-family: var(--serif-kr);
-    font-size: 12.5px;
-    letter-spacing: 0.5em;
-    text-indent: 0.5em;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
     color: var(--brass-deep);
+    white-space: nowrap;
   }
-  .arch-window .names-line {
+  .arch-art .names-line {
     font-family: var(--serif-kr);
     font-size: 30px;
     font-weight: 700;
@@ -318,7 +249,7 @@
     line-height: 1.6;
     color: var(--ink);
   }
-  .arch-window .names-line .and {
+  .arch-art .names-line .and {
     display: block;
     font-family: var(--serif-kr);
     font-weight: 400;
@@ -763,21 +694,16 @@
     <div class="fg seq-1 chandelier-art" aria-hidden="true">
       <img src="assets/chandelier.webp" alt="" width="660" height="989">
     </div>
-    <div class="fg seq-2 arch-wrap">
-      <div class="arch-window">
-        <div class="hairline" aria-hidden="true"></div>
-        <div class="mullions" aria-hidden="true"></div>
-        <div class="garden" aria-hidden="true"></div>
-        <div class="inner">
-          <p class="small-word">빛이 먼저 닿는 곳</p>
-          <p class="names-line">
-            김온유
-            <span class="and">그리고</span>
-            이 봄
-          </p>
-        </div>
+    <div class="fg seq-2 arch-art">
+      <img src="assets/arch-window.webp" alt="" width="900" height="1323">
+      <div class="inner">
+        <p class="small-word">빛이 먼저 닿는 곳</p>
+        <p class="names-line">
+          김온유
+          <span class="and">그리고</span>
+          이 봄
+        </p>
       </div>
-      <div class="arch-plinth" aria-hidden="true"></div>
     </div>
     <p class="fg seq-3 date-line">2027 · 08 · 28</p>
     <p class="fg seq-4 venue-line">
