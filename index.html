@@ -583,12 +583,13 @@
   .contact-card::before, .contact-card::after {
     content: "";
     position: absolute;
-    width: 12px; height: 12px;
-    border-color: var(--brass-soft);
-    border-style: solid;
+    width: 74px; height: 84px;
+    background: url("assets/corner.webp") no-repeat 0 0 / contain;
+    pointer-events: none;
+    opacity: 0.9;
   }
-  .contact-card::before { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
-  .contact-card::after { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
+  .contact-card::before { top: 5px; left: 5px; }
+  .contact-card::after { bottom: 5px; right: 5px; transform: rotate(180deg); }
   .contact-card .who {
     font-family: var(--serif-la);
     font-size: 11px;
