@@ -173,72 +173,36 @@
   .string-lights i:nth-child(5), .string-lights i:nth-child(7)  { transform: translateY(10.5px); animation-delay: 1.2s; }
   .string-lights i:nth-child(6) { transform: translateY(11px); animation-delay: 1.5s; }
 
-  /* 샹들리에 — 크리스탈 캐스케이드 */
-  .chandelier {
+  /* 샹들리에 — 생성 일러스트 */
+  .chandelier-art {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 48px;
-    padding-top: 12px;
+    margin-bottom: 40px;
   }
-  /* 상단 캐노피 아치 */
-  .chandelier::before {
+  .chandelier-art img {
+    display: block;
+    width: min(216px, 58vw);
+    height: auto;
+    margin: 0 auto;
+    /* 브라스 팔레트에 맞춘 톤 보정 */
+    filter: saturate(0.8) hue-rotate(-4deg) brightness(1.02)
+            drop-shadow(0 6px 22px rgba(201, 174, 126, 0.35));
+  }
+  /* 은은한 빛 번짐 펄스 */
+  .chandelier-art::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: 172px; height: 20px;
-    margin-left: -86px;
-    border: 1px solid var(--brass-soft);
-    border-bottom: none;
-    border-radius: 999px 999px 0 0;
-    opacity: 0.45;
-  }
-  .chandelier .drop {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-  .chandelier .drop::before {
-    content: "";
-    width: 1px;
-    background: linear-gradient(rgba(176, 141, 87, 0.25), var(--brass));
-  }
-  .chandelier .drop:nth-child(1)::before { height: 12px; }
-  .chandelier .drop:nth-child(2)::before { height: 24px; }
-  .chandelier .drop:nth-child(3)::before { height: 38px; }
-  .chandelier .drop:nth-child(4)::before { height: 52px; }
-  .chandelier .drop:nth-child(5)::before { height: 62px; }
-  .chandelier .drop:nth-child(6)::before { height: 52px; }
-  .chandelier .drop:nth-child(7)::before { height: 38px; }
-  .chandelier .drop:nth-child(8)::before { height: 24px; }
-  .chandelier .drop:nth-child(9)::before { height: 12px; }
-  /* 중간 크리스탈 */
-  .chandelier .drop b {
-    width: 5px; height: 5px;
-    background: linear-gradient(135deg, #FFF3D8, var(--brass-soft));
-    transform: rotate(45deg);
-    box-shadow: 0 0 6px rgba(201, 174, 126, 0.55);
-  }
-  /* 말단 크리스탈 볼 */
-  .chandelier .drop i {
-    width: 8px; height: 8px;
+    left: 50%; top: 44%;
+    width: 240px; height: 240px;
+    margin: -120px 0 0 -120px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #FFF8E4, var(--brass));
-    box-shadow: 0 0 14px rgba(201, 174, 126, 0.7);
-    animation: twinkle 3.4s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(255, 243, 210, 0.55), transparent 65%);
+    z-index: -1;
+    animation: glowpulse 4.2s ease-in-out infinite;
   }
-  .chandelier .drop:nth-child(2) i { animation-delay: 0.4s; }
-  .chandelier .drop:nth-child(3) i { animation-delay: 0.8s; }
-  .chandelier .drop:nth-child(4) i { animation-delay: 1.2s; }
-  .chandelier .drop:nth-child(5) i { animation-delay: 1.6s; }
-  .chandelier .drop:nth-child(6) i { animation-delay: 2.0s; }
-  .chandelier .drop:nth-child(7) i { animation-delay: 2.4s; }
-  .chandelier .drop:nth-child(8) i { animation-delay: 2.8s; }
-  .chandelier .drop:nth-child(9) i { animation-delay: 3.2s; }
+  @keyframes glowpulse {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+  }
   @keyframes twinkle {
     0%, 100% { box-shadow: 0 0 8px rgba(201, 174, 126, 0.45); }
     50%      { box-shadow: 0 0 18px rgba(201, 174, 126, 0.95); }
@@ -779,7 +743,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .cover .fg { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .rays, .chandelier .drop i, .string-lights i,
+    .rays, .chandelier-art::before, .string-lights i,
     .calendar td.dday::after, .scroll-hint::before { animation: none !important; }
     html { scroll-behavior: auto; }
   }
@@ -796,16 +760,8 @@
     <div class="string-lights" aria-hidden="true">
       <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
     </div>
-    <div class="fg seq-1 chandelier" aria-hidden="true">
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
-      <span class="drop"><b></b><i></i></span>
+    <div class="fg seq-1 chandelier-art" aria-hidden="true">
+      <img src="assets/chandelier.webp" alt="" width="660" height="989">
     </div>
     <div class="fg seq-2 arch-wrap">
       <div class="arch-window">
