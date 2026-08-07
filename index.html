@@ -189,25 +189,18 @@
     position: absolute;
     top: 0;
     left: 50%;
-    width: 148px; height: 20px;
-    margin-left: -74px;
+    width: 172px; height: 20px;
+    margin-left: -86px;
     border: 1px solid var(--brass-soft);
     border-bottom: none;
     border-radius: 999px 999px 0 0;
-    opacity: 0.55;
+    opacity: 0.45;
   }
   .chandelier .drop {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    transform-origin: top center;
-    animation: sway 6s ease-in-out infinite alternate;
-  }
-  .chandelier .drop:nth-child(even) { animation-delay: -3s; }
-  @keyframes sway {
-    from { transform: rotate(-1.6deg); }
-    to   { transform: rotate(1.6deg); }
   }
   .chandelier .drop::before {
     content: "";
@@ -782,7 +775,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .cover .fg { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .rays, .chandelier .drop, .chandelier .drop i, .string-lights i,
+    .rays, .chandelier .drop i, .string-lights i,
     .calendar td.dday::after, .scroll-hint::before { animation: none !important; }
     html { scroll-behavior: auto; }
   }
@@ -1078,14 +1071,19 @@
     resize();
     window.addEventListener("resize", resize);
 
-    for (var i = 0; i < 22; i++) {
+    // 샹들리에 영역(상단 30%)을 피해 은은하게
+    var TOP_SAFE = 0.3;
+    function spawnY() {
+      return cover.clientHeight * (TOP_SAFE + Math.random() * (1 - TOP_SAFE));
+    }
+    for (var i = 0; i < 13; i++) {
       particles.push({
         x: Math.random() * cover.clientWidth,
-        y: Math.random() * cover.clientHeight,
-        r: 1.2 + Math.random() * 2.8,
-        vy: -(0.08 + Math.random() * 0.2),
-        vx: (Math.random() - 0.5) * 0.12,
-        a: 0.12 + Math.random() * 0.3,
+        y: spawnY(),
+        r: 0.9 + Math.random() * 1.5,
+        vy: -(0.06 + Math.random() * 0.14),
+        vx: (Math.random() - 0.5) * 0.1,
+        a: 0.07 + Math.random() * 0.16,
         ph: Math.random() * Math.PI * 2
       });
     }
@@ -1096,14 +1094,14 @@
       ctx.clearRect(0, 0, w, h);
       particles.forEach(function (p) {
         p.y += p.vy;
-        p.x += p.vx + Math.sin(ts / 2400 + p.ph) * 0.12;
-        if (p.y < -6) { p.y = h + 6; p.x = Math.random() * w; }
+        p.x += p.vx + Math.sin(ts / 2400 + p.ph) * 0.1;
+        if (p.y < h * 0.3) { p.y = h + 6; p.x = Math.random() * w; }
         var glow = p.a * (0.7 + 0.3 * Math.sin(ts / 1100 + p.ph));
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(214, 182, 118," + glow.toFixed(3) + ")";
-        ctx.shadowColor = "rgba(214, 182, 118, 0.8)";
-        ctx.shadowBlur = 7;
+        ctx.shadowColor = "rgba(214, 182, 118, 0.6)";
+        ctx.shadowBlur = 4;
         ctx.fill();
         ctx.shadowBlur = 0;
       });
