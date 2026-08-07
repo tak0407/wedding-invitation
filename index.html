@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="2027년 8월 28일 토요일 낮 12시 30분, JW컨벤션 울산 루미에르홀">
 <title>온유 ♥ 봄 — 결혼합니다</title>
+<script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -311,7 +312,7 @@
     background:
       linear-gradient(to right, transparent calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
       repeating-linear-gradient(to bottom, transparent 0 25%, rgba(176, 141, 87, 0.55) 25%, rgba(176, 141, 87, 0.55) calc(25% + 1px), transparent calc(25% + 1px) 26%);
-    opacity: 0.55;
+    opacity: 0.38;
     pointer-events: none;
   }
   /* 창밖 사이프러스 */
@@ -335,8 +336,11 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    z-index: 1;
+    z-index: 3;
     padding: 0 20px;
+    /* 이름 뒤 창살을 지우는 소프트 글로우 */
+    background: radial-gradient(ellipse 72% 46% at 50% 50%,
+      rgba(252, 248, 237, 0.96) 40%, rgba(252, 248, 237, 0) 78%);
   }
   .arch-window .small-word {
     font-family: var(--serif-kr);
@@ -355,12 +359,12 @@
   }
   .arch-window .names-line .and {
     display: block;
-    font-family: var(--serif-la);
-    font-style: italic;
+    font-family: var(--serif-kr);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 13px;
     color: var(--blush-deep);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
     padding: 4px 0;
   }
 
@@ -408,8 +412,8 @@
     color: var(--ink-soft);
   }
 
-  /* 표지 등장 시퀀스 */
-  .cover .fg { opacity: 0; transform: translateY(18px); }
+  /* 표지 등장 시퀀스 — JS 활성일 때만 숨김 (progressive enhancement) */
+  html.js .cover .fg { opacity: 0; transform: translateY(18px); }
   body.loaded .cover .fg {
     opacity: 1;
     transform: none;
@@ -599,7 +603,7 @@
     font-size: 22px;
     color: var(--brass-deep);
     font-weight: 500;
-    padding: 0 3px;
+    padding: 0 1px;
     font-variant-numeric: tabular-nums;
   }
 
@@ -768,13 +772,13 @@
   }
   footer p { font-size: 13px; color: var(--ink-soft); }
 
-  /* ═══ 스크롤 리빌 ════════════════════════════ */
-  .reveal {
+  /* ═══ 스크롤 리빌 — JS 활성일 때만 숨김 ═════ */
+  html.js .reveal {
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 0.9s ease, transform 0.9s ease;
   }
-  .reveal.shown { opacity: 1; transform: none; }
+  html.js .reveal.shown { opacity: 1; transform: none; }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .cover .fg { opacity: 1 !important; transform: none !important; transition: none !important; }
@@ -815,7 +819,7 @@
           <p class="small-word">빛이 먼저 닿는 곳</p>
           <p class="names-line">
             김온유
-            <span class="and">et</span>
+            <span class="and">그리고</span>
             이 봄
           </p>
         </div>
@@ -870,7 +874,7 @@
     <div class="calendar-frame">
     <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
     <table class="calendar" aria-label="2027년 8월 달력">
-      <caption>AOÛT 2027</caption>
+      <caption>AUGUST 2027</caption>
       <thead>
         <tr>
           <th class="sun" scope="col">S</th><th scope="col">M</th><th scope="col">T</th>
