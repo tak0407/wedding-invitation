@@ -3,29 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>온유 ♥ 봄 — 루미에르</title>
+<meta name="description" content="2027년 8월 28일 토요일 낮 12시 30분, JW컨벤션 울산 루미에르홀">
+<title>온유 ♥ 봄 — 결혼합니다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  /* ── 루미에르홀 전용 tokens ──────────────────
-     실제 홀 리서치 기반: 아이보리+대리석, 아치 통창,
-     크리스탈 샹들리에, 브라스, 블러쉬 플라워, 월넛 도어 */
+  /* ═══ LUMIÈRE ═════════════════════════════════
+     루미에르홀 리서치 기반: 아이보리·대리석, 아치 통창,
+     크리스탈 샹들리에, 황동, 블러쉬 플라워, 월넛 도어 */
   :root {
-    --ivory: #FDFCF8;
-    --marble: #F4F1EA;
-    --vein: #E7E2D7;          /* 대리석 결 */
-    --brass: #B99A62;         /* 황동 조명 */
-    --brass-deep: #9A7C48;
-    --blush: #E9C6CB;         /* 플라워로드 블러쉬 */
-    --blush-deep: #C98F98;
-    --walnut: #5C4433;        /* 월넛 도어 */
-    --ink: #3C362E;
-    --ink-soft: #857D6F;
-    --serif: "Nanum Myeongjo", "Apple Myungjo", "AppleMyungjo", Batang, "Noto Serif KR", serif;
-    --sans: "Apple SD Gothic Neo", Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
+    --ivory: #FDFBF6;
+    --marble: #F5F1E8;
+    --vein: #E9E3D4;
+    --brass: #B08D57;
+    --brass-soft: #C9AE7E;
+    --brass-deep: #8F7040;
+    --blush: #E5C2C6;
+    --blush-deep: #C28A93;
+    --walnut: #52402F;
+    --ink: #37312A;
+    --ink-soft: #877D6C;
+    --serif-kr: "Gowun Batang", "Nanum Myeongjo", "Apple Myungjo", Batang, serif;
+    --serif-la: "Cormorant Garamond", "Gowun Batang", serif;
+    --sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { background: var(--marble); }
+  html { background: var(--marble); scroll-behavior: smooth; }
   body {
     background: var(--marble);
     color: var(--ink);
@@ -33,118 +40,204 @@
     font-size: 16px;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
   }
 
   .page {
     max-width: 430px;
     margin: 0 auto;
-    background: var(--ivory);
-    min-height: 100vh;
-    box-shadow: 0 0 48px rgba(60, 54, 46, 0.10);
+    background:
+      /* 은은한 대리석 결 */
+      radial-gradient(ellipse 400px 300px at 85% 12%, rgba(233, 227, 212, 0.5), transparent 70%),
+      radial-gradient(ellipse 500px 380px at 8% 55%, rgba(233, 227, 212, 0.35), transparent 70%),
+      radial-gradient(ellipse 360px 280px at 90% 85%, rgba(229, 194, 198, 0.10), transparent 70%),
+      var(--ivory);
+    box-shadow: 0 0 56px rgba(55, 49, 42, 0.12);
     overflow: hidden;
   }
 
   .draft-badge {
-    position: sticky; top: 0; z-index: 10;
+    position: sticky; top: 0; z-index: 20;
     background: var(--walnut);
     color: var(--ivory);
-    font-size: 12px;
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-align: center;
     padding: 6px 12px;
   }
 
-  section { padding: 76px 28px; }
-  section + section { border-top: 1px solid var(--vein); }
+  section { padding: 84px 30px; position: relative; }
 
+  /* ── 섹션 오너먼트 ─────────────────────────── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .ornament::before, .ornament::after {
+    content: "";
+    height: 1px;
+    width: 44px;
+    background: linear-gradient(to right, transparent, var(--brass-soft));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, var(--brass-soft)); }
+  .ornament i {
+    width: 5px; height: 5px;
+    background: var(--brass);
+    transform: rotate(45deg);
+  }
   .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.38em;
+    font-family: var(--serif-la);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.46em;
+    text-indent: 0.46em;
     color: var(--brass-deep);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 34px;
   }
 
   h2 {
-    font-family: var(--serif);
-    font-weight: 500;
+    font-family: var(--serif-kr);
+    font-weight: 700;
     font-size: 21px;
     text-align: center;
     text-wrap: balance;
-    margin-bottom: 28px;
-    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+    letter-spacing: 0.02em;
   }
 
-  /* ── 표지: 아치 통창과 샹들리에 ───────────── */
+  /* ═══ 표지 ════════════════════════════════════ */
   .cover {
-    padding: 72px 28px 80px;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 68px 30px 56px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
-  /* 샹들리에 — 매달린 크리스탈 점들 */
+  /* 정오의 빛줄기 */
+  .cover .rays {
+    position: absolute;
+    inset: -20% -30%;
+    background:
+      linear-gradient(118deg, transparent 30%, rgba(255, 241, 205, 0.55) 44%, transparent 55%),
+      linear-gradient(62deg, transparent 42%, rgba(255, 244, 216, 0.4) 55%, transparent 66%);
+    filter: blur(14px);
+    animation: shimmer 9s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes shimmer {
+    from { opacity: 0.5; transform: translateX(-14px); }
+    to   { opacity: 1;   transform: translateX(14px); }
+  }
+  .cover canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .cover .fg { position: relative; z-index: 1; }
+
+  /* 샹들리에 */
   .chandelier {
     display: flex;
     justify-content: center;
-    gap: 22px;
-    margin-bottom: 40px;
+    gap: 24px;
+    margin-bottom: 42px;
   }
   .chandelier .drop {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+    transform-origin: top center;
+    animation: sway 6s ease-in-out infinite alternate;
+  }
+  .chandelier .drop:nth-child(even) { animation-delay: -3s; }
+  @keyframes sway {
+    from { transform: rotate(-2deg); }
+    to   { transform: rotate(2deg); }
   }
   .chandelier .drop::before {
     content: "";
     width: 1px;
-    background: linear-gradient(var(--vein), var(--brass));
+    background: linear-gradient(rgba(176, 141, 87, 0.25), var(--brass));
   }
-  .chandelier .drop:nth-child(1)::before { height: 26px; }
-  .chandelier .drop:nth-child(2)::before { height: 44px; }
-  .chandelier .drop:nth-child(3)::before { height: 60px; }
-  .chandelier .drop:nth-child(4)::before { height: 44px; }
-  .chandelier .drop:nth-child(5)::before { height: 26px; }
+  .chandelier .drop:nth-child(1)::before { height: 28px; }
+  .chandelier .drop:nth-child(2)::before { height: 50px; }
+  .chandelier .drop:nth-child(3)::before { height: 68px; }
+  .chandelier .drop:nth-child(4)::before { height: 50px; }
+  .chandelier .drop:nth-child(5)::before { height: 28px; }
   .chandelier .drop i {
-    width: 7px; height: 7px;
+    width: 8px; height: 8px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #FFF7E0, var(--brass));
-    box-shadow: 0 0 12px rgba(185, 154, 98, 0.55);
+    background: radial-gradient(circle at 35% 30%, #FFF8E4, var(--brass));
+    box-shadow: 0 0 14px rgba(201, 174, 126, 0.7);
+    animation: twinkle 3.4s ease-in-out infinite;
+  }
+  .chandelier .drop:nth-child(2) i { animation-delay: 0.6s; }
+  .chandelier .drop:nth-child(3) i { animation-delay: 1.2s; }
+  .chandelier .drop:nth-child(4) i { animation-delay: 1.8s; }
+  .chandelier .drop:nth-child(5) i { animation-delay: 2.4s; }
+  @keyframes twinkle {
+    0%, 100% { box-shadow: 0 0 8px rgba(201, 174, 126, 0.45); }
+    50%      { box-shadow: 0 0 18px rgba(201, 174, 126, 0.95); }
   }
 
-  /* 아치 통창 프레임 — 창살과 빛, 창밖 사이프러스 */
+  /* 아치 통창 — 이중 프레임 */
+  .arch-wrap { position: relative; margin-bottom: 46px; }
   .arch-window {
-    width: min(272px, 78%);
-    aspect-ratio: 3 / 4.4;
-    margin: 0 auto 44px;
+    width: min(282px, 76vw);
+    aspect-ratio: 3 / 4.5;
     border: 1px solid var(--brass);
     border-radius: 999px 999px 0 0;
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 130% 70% at 50% 0%, rgba(255, 244, 214, 0.75), transparent 58%),
-      linear-gradient(178deg, #FBF7EC 0%, #F6EEE3 46%, #EFE4D2 100%);
+      radial-gradient(ellipse 140% 68% at 50% 0%, rgba(255, 243, 210, 0.85), transparent 60%),
+      linear-gradient(178deg, #FCF8ED 0%, #F6EEDF 48%, #EFE3CD 100%);
+    box-shadow:
+      0 24px 48px -20px rgba(82, 64, 47, 0.28),
+      inset 0 0 60px rgba(255, 248, 228, 0.6);
+  }
+  /* 외곽 이중 헤어라인 */
+  .arch-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border: 1px solid rgba(176, 141, 87, 0.35);
+    border-radius: 999px 999px 0 0;
+    pointer-events: none;
   }
   /* 창살 */
-  .arch-window::before {
-    content: "";
+  .arch-window .mullions {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, transparent calc(50% - 0.5px), var(--brass) calc(50% - 0.5px), var(--brass) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
-      repeating-linear-gradient(to bottom, transparent 0 26%, rgba(185, 154, 98, 0.7) 26%, rgba(185, 154, 98, 0.7) calc(26% + 1px), transparent calc(26% + 1px) 27%);
-    opacity: 0.6;
+      linear-gradient(to right, transparent calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% - 0.5px), rgba(176, 141, 87, 0.75) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+      repeating-linear-gradient(to bottom, transparent 0 25%, rgba(176, 141, 87, 0.55) 25%, rgba(176, 141, 87, 0.55) calc(25% + 1px), transparent calc(25% + 1px) 26%);
+    opacity: 0.55;
     pointer-events: none;
   }
-  /* 창밖 사이프러스 실루엣 */
-  .arch-window::after {
-    content: "";
+  /* 창밖 사이프러스 */
+  .arch-window .garden {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 26%;
+    height: 27%;
     background:
-      radial-gradient(ellipse 26px 60px at 16% 100%, rgba(95, 118, 92, 0.35), transparent 70%),
-      radial-gradient(ellipse 20px 46px at 34% 100%, rgba(95, 118, 92, 0.28), transparent 70%),
-      radial-gradient(ellipse 28px 64px at 58% 100%, rgba(95, 118, 92, 0.33), transparent 70%),
-      radial-gradient(ellipse 22px 50px at 80% 100%, rgba(95, 118, 92, 0.27), transparent 70%);
+      radial-gradient(ellipse 26px 62px at 14% 100%, rgba(96, 117, 91, 0.35), transparent 70%),
+      radial-gradient(ellipse 19px 46px at 32% 100%, rgba(96, 117, 91, 0.26), transparent 70%),
+      radial-gradient(ellipse 30px 68px at 57% 100%, rgba(96, 117, 91, 0.32), transparent 70%),
+      radial-gradient(ellipse 22px 52px at 79% 100%, rgba(96, 117, 91, 0.26), transparent 70%),
+      radial-gradient(ellipse 16px 38px at 93% 100%, rgba(96, 117, 91, 0.2), transparent 70%);
     pointer-events: none;
   }
   .arch-window .inner {
@@ -154,209 +247,396 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
     z-index: 1;
+    padding: 0 20px;
   }
   .arch-window .small-word {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 0.42em;
+    font-family: var(--serif-kr);
+    font-size: 12.5px;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
     color: var(--brass-deep);
   }
   .arch-window .names-line {
-    font-family: var(--serif);
-    font-size: 27px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    line-height: 1.7;
+    font-family: var(--serif-kr);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.6;
     color: var(--ink);
   }
   .arch-window .names-line .and {
     display: block;
-    font-size: 13px;
+    font-family: var(--serif-la);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 15px;
     color: var(--blush-deep);
-    letter-spacing: 0.3em;
+    letter-spacing: 0.14em;
+    padding: 4px 0;
+  }
+
+  .cover .date-line {
+    font-family: var(--serif-la);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
   }
   .cover .venue-line {
     font-size: 14px;
     color: var(--ink-soft);
-    line-height: 2.1;
+    line-height: 2;
   }
   .cover .venue-line strong { color: var(--ink); font-weight: 600; }
-  .cover .hall-word {
-    margin-top: 18px;
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 0.3em;
+
+  .scroll-hint {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .scroll-hint::before {
+    content: "";
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(var(--brass), transparent);
+    animation: drip 2.2s ease-in-out infinite;
+  }
+  @keyframes drip {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    55%  { transform: scaleY(1); transform-origin: top; }
+    100% { transform: scaleY(1); opacity: 0; }
+  }
+  .scroll-hint span {
+    font-family: var(--serif-la);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    color: var(--ink-soft);
+  }
+
+  /* 표지 등장 시퀀스 */
+  .cover .fg { opacity: 0; transform: translateY(18px); }
+  body.loaded .cover .fg {
+    opacity: 1;
+    transform: none;
+    transition: opacity 1.1s ease, transform 1.1s ease;
+  }
+  body.loaded .cover .fg.seq-1 { transition-delay: 0s; }
+  body.loaded .cover .fg.seq-2 { transition-delay: 0.25s; }
+  body.loaded .cover .fg.seq-3 { transition-delay: 0.55s; }
+  body.loaded .cover .fg.seq-4 { transition-delay: 0.75s; }
+  body.loaded .cover .fg.seq-5 { transition-delay: 1.05s; }
+
+  /* ═══ 인터루드 ═══════════════════════════════ */
+  .interlude {
+    padding: 96px 30px;
+    text-align: center;
+    background: linear-gradient(rgba(176, 141, 87, 0.05), transparent 55%);
+  }
+  .interlude p {
+    font-family: var(--serif-kr);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 2.1;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .interlude .la {
+    display: block;
+    margin-top: 20px;
+    font-family: var(--serif-la);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.2em;
     color: var(--brass-deep);
   }
 
-  /* ── 인사말 ────────────────────────────────── */
+  /* ═══ 인사말 ═════════════════════════════════ */
+  .greeting { border-top: 1px solid var(--vein); }
   .greeting p {
-    font-family: var(--serif);
+    font-family: var(--serif-kr);
     text-align: center;
     font-size: 16px;
-    line-height: 2.3;
+    line-height: 2.35;
   }
-  .greeting p + p { margin-top: 24px; }
+  .greeting p + p { margin-top: 28px; }
   .greeting .light-word { color: var(--brass-deep); }
   .parents {
-    margin-top: 46px;
+    margin-top: 52px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--ink-soft);
   }
-  .parents strong { color: var(--ink); font-weight: 600; margin-left: 8px; }
+  .parents strong {
+    color: var(--ink);
+    font-weight: 700;
+    font-family: var(--serif-kr);
+    margin-left: 8px;
+    font-size: 16px;
+  }
 
-  /* ── 예식 안내 ─────────────────────────────── */
-  .when-where { text-align: center; }
-  .when-where .big-date { font-family: var(--serif); font-size: 20px; margin-bottom: 6px; }
-  .when-where .time { color: var(--ink-soft); font-size: 15px; margin-bottom: 40px; }
+  /* ═══ 예식 안내 ══════════════════════════════ */
+  .when-where { text-align: center; border-top: 1px solid var(--vein); }
+  .when-where .big-date {
+    font-family: var(--serif-kr);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .when-where .time { color: var(--ink-soft); font-size: 15px; margin-bottom: 48px; }
 
   .calendar {
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto 40px;
+    max-width: 322px;
+    margin: 0 auto 44px;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
   }
   .calendar caption {
-    font-family: var(--serif);
-    font-size: 14px;
-    letter-spacing: 0.26em;
-    padding-bottom: 16px;
+    font-family: var(--serif-la);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    padding-bottom: 20px;
     color: var(--brass-deep);
   }
-  .calendar th { font-size: 12px; font-weight: 500; color: var(--ink-soft); padding-bottom: 10px; }
+  .calendar th {
+    font-family: var(--serif-la);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    padding-bottom: 14px;
+  }
   .calendar th.sun { color: var(--blush-deep); }
-  .calendar td { font-size: 14px; text-align: center; padding: 7px 0; }
+  .calendar td {
+    font-size: 14.5px;
+    text-align: center;
+    padding: 9px 0;
+    color: var(--ink);
+  }
   .calendar td.sun { color: var(--blush-deep); }
-  .calendar td.dday { position: relative; color: var(--ivory); font-weight: 700; z-index: 0; }
+  .calendar td.dday {
+    position: relative;
+    color: var(--ivory);
+    font-weight: 700;
+    z-index: 0;
+  }
   .calendar td.dday::before {
     content: "";
     position: absolute;
-    width: 32px; height: 32px;
+    width: 34px; height: 34px;
     left: 50%; top: 50%;
-    margin: -16px 0 0 -16px;
+    margin: -17px 0 0 -17px;
     border-radius: 50%;
     background: var(--brass);
     z-index: -1;
   }
+  /* 은은한 링 펄스 */
+  .calendar td.dday::after {
+    content: "";
+    position: absolute;
+    width: 34px; height: 34px;
+    left: 50%; top: 50%;
+    margin: -17px 0 0 -17px;
+    border-radius: 50%;
+    border: 1px solid var(--brass);
+    animation: ringpulse 3s ease-out infinite;
+    z-index: -1;
+  }
+  @keyframes ringpulse {
+    from { transform: scale(1);   opacity: 0.8; }
+    to   { transform: scale(1.8); opacity: 0; }
+  }
   .dday-counter { font-size: 15px; color: var(--ink-soft); }
-  .dday-counter strong { color: var(--brass-deep); font-weight: 700; }
+  .dday-counter strong {
+    font-family: var(--serif-la);
+    font-size: 22px;
+    color: var(--brass-deep);
+    font-weight: 500;
+    padding: 0 3px;
+    font-variant-numeric: tabular-nums;
+  }
 
-  /* ── 갤러리: 아치 통창 프레임 ─────────────── */
-  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .gallery-grid .ph {
-    aspect-ratio: 3 / 4;
+  /* ═══ 갤러리 ═════════════════════════════════ */
+  .gallery { border-top: 1px solid var(--vein); }
+  .gallery-hero {
+    aspect-ratio: 3 / 3.8;
     border-radius: 999px 999px 0 0;
+    border: 1px solid var(--vein);
+    background:
+      radial-gradient(ellipse 120% 60% at 50% 0%, rgba(255, 243, 210, 0.55), transparent 60%),
+      linear-gradient(172deg, #FAF5E9, var(--marble));
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--serif-la);
     font-size: 12px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
     color: var(--ink-soft);
-    background: linear-gradient(172deg, #FAF6EC, var(--marble));
+    margin-bottom: 14px;
+  }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .gallery-grid .ph {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif-la);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    color: var(--ink-soft);
+    background: linear-gradient(172deg, #FAF5E9, var(--marble));
     border: 1px solid var(--vein);
   }
   .gallery-note { margin-top: 18px; font-size: 13px; color: var(--ink-soft); text-align: center; }
 
-  /* ── 오시는 길 ─────────────────────────────── */
+  /* ═══ 오시는 길 ══════════════════════════════ */
+  .where { border-top: 1px solid var(--vein); }
   .map-ph {
-    height: 220px;
+    height: 224px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 7px;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--vein);
     background: var(--marble);
     color: var(--ink-soft);
     font-size: 13px;
-    letter-spacing: 0.06em;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
     text-align: center;
     padding: 0 16px;
   }
-  .directions { display: flex; flex-direction: column; gap: 24px; }
+  .map-ph .addr { color: var(--ink); font-weight: 600; }
+  .directions { display: flex; flex-direction: column; gap: 26px; }
   .directions dt {
+    font-family: var(--serif-la);
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-weight: 500;
+    letter-spacing: 0.34em;
     color: var(--brass-deep);
-    margin-bottom: 6px;
+    margin-bottom: 7px;
   }
-  .directions dd { font-size: 14px; color: var(--ink-soft); }
+  .directions dd { font-size: 14.5px; color: var(--ink-soft); line-height: 1.9; }
 
-  /* ── 마음 전하실 곳 ────────────────────────── */
-  .accounts { display: flex; flex-direction: column; gap: 12px; }
+  /* ═══ 마음 전하실 곳 ═════════════════════════ */
+  .gift { border-top: 1px solid var(--vein); }
+  .accounts { display: flex; flex-direction: column; gap: 14px; }
   .account-card {
     border: 1px solid var(--vein);
     border-top: 2px solid var(--brass);
-    padding: 18px 20px;
+    padding: 20px 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    background: var(--ivory);
+    background: rgba(253, 251, 246, 0.85);
+    box-shadow: 0 6px 18px -10px rgba(82, 64, 47, 0.18);
   }
-  .account-card .who { font-size: 13px; color: var(--ink-soft); margin-bottom: 2px; }
+  .account-card .who { font-size: 13px; color: var(--ink-soft); margin-bottom: 3px; }
   .account-card .num { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
   .copy-btn {
     flex-shrink: 0;
     font-family: var(--sans);
     font-size: 13px;
-    padding: 8px 15px;
+    padding: 9px 18px;
     border: 1px solid var(--brass);
+    border-radius: 999px;
     background: transparent;
     color: var(--brass-deep);
     cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
   }
   .copy-btn:focus-visible { outline: 2px solid var(--walnut); outline-offset: 2px; }
   .copy-btn.copied { background: var(--brass); color: var(--ivory); }
 
-  /* ── 연락처 ────────────────────────────────── */
-  .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  /* ═══ 연락처 ═════════════════════════════════ */
+  .contact { border-top: 1px solid var(--vein); }
+  .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .contact-card {
     border: 1px solid var(--vein);
-    padding: 22px 16px;
+    padding: 26px 16px;
     text-align: center;
-    background: var(--ivory);
+    background: rgba(253, 251, 246, 0.85);
   }
-  .contact-card .who { font-size: 12px; letter-spacing: 0.2em; color: var(--ink-soft); margin-bottom: 4px; }
-  .contact-card .name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 14px; }
+  .contact-card .who {
+    font-family: var(--serif-la);
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-indent: 0.36em;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .contact-card .name {
+    font-family: var(--serif-kr);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
   .contact-card a {
     display: inline-block;
     font-size: 13px;
     color: var(--brass-deep);
     text-decoration: none;
     border: 1px solid var(--brass);
-    padding: 7px 16px;
+    border-radius: 999px;
+    padding: 8px 20px;
+    transition: background 0.25s ease, color 0.25s ease;
   }
   .contact-card a:focus-visible { outline: 2px solid var(--walnut); outline-offset: 2px; }
 
+  /* ═══ 푸터 ═══════════════════════════════════ */
   footer {
-    padding: 56px 28px 76px;
+    padding: 68px 30px 84px;
     border-top: 1px solid var(--vein);
     text-align: center;
-    background: linear-gradient(rgba(185, 154, 98, 0.06), transparent);
+    background: linear-gradient(rgba(176, 141, 87, 0.07), transparent);
   }
   footer .lumiere-word {
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: 0.4em;
+    font-family: var(--serif-la);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.6em;
+    text-indent: 0.6em;
     color: var(--brass-deep);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+  }
+  footer .dot {
+    width: 5px; height: 5px;
+    margin: 0 auto 16px;
+    background: var(--brass);
+    transform: rotate(45deg);
   }
   footer p { font-size: 13px; color: var(--ink-soft); }
 
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  /* ═══ 스크롤 리빌 ════════════════════════════ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
   .reveal.shown { opacity: 1; transform: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal, .cover .fg { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .rays, .chandelier .drop, .chandelier .drop i,
+    .calendar td.dday::after, .scroll-hint::before { animation: none !important; }
+    html { scroll-behavior: auto; }
   }
 </style>
 </head>
@@ -366,41 +646,57 @@
 
   <!-- 표지 -->
   <section class="cover">
-    <div class="chandelier" aria-hidden="true">
+    <div class="rays" aria-hidden="true"></div>
+    <canvas id="bokeh" aria-hidden="true"></canvas>
+    <div class="fg seq-1 chandelier" aria-hidden="true">
       <span class="drop"><i></i></span>
       <span class="drop"><i></i></span>
       <span class="drop"><i></i></span>
       <span class="drop"><i></i></span>
       <span class="drop"><i></i></span>
     </div>
-    <div class="arch-window">
-      <div class="inner">
-        <p class="small-word">빛이 먼저 닿는 곳</p>
-        <p class="names-line">
-          김온유
-          <span class="and">그리고</span>
-          이 봄
-        </p>
+    <div class="fg seq-2 arch-wrap">
+      <div class="arch-window">
+        <div class="mullions" aria-hidden="true"></div>
+        <div class="garden" aria-hidden="true"></div>
+        <div class="inner">
+          <p class="small-word">빛이 먼저 닿는 곳</p>
+          <p class="names-line">
+            김온유
+            <span class="and">et</span>
+            이 봄
+          </p>
+        </div>
       </div>
     </div>
-    <p class="venue-line">
-      <strong>2027년 8월 28일 토요일 낮 12시 30분</strong><br>
+    <p class="fg seq-3 date-line">2027 · 08 · 28</p>
+    <p class="fg seq-4 venue-line">
+      <strong>토요일 낮 12시 30분</strong><br>
       JW컨벤션 울산 루미에르홀
     </p>
-    <p class="hall-word">LA LUMIÈRE · 빛</p>
+    <div class="fg seq-5 scroll-hint" aria-hidden="true"><span>SCROLL</span></div>
   </section>
+
+  <!-- 인터루드 -->
+  <div class="interlude reveal">
+    <p>
+      루미에르, 빛이라는 이름의 홀에서<br>
+      두 사람이 서약합니다.
+      <span class="la">la lumière — the light</span>
+    </p>
+  </div>
 
   <!-- 인사말 -->
   <section class="greeting reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">INVITATION</p>
     <p>
-      루미에르, <span class="light-word">빛</span>이라는 이름의 홀에서<br>
-      저희 두 사람이 서약합니다.
+      통창으로 드는 정오의 햇살처럼<br>
+      서로에게 가장 따뜻한 <span class="light-word">빛</span>이 되겠습니다.
     </p>
     <p>
-      통창으로 드는 정오의 햇살처럼<br>
-      서로에게 가장 따뜻한 빛이 되겠습니다.<br>
-      그 첫 순간을 함께 비춰 주세요.
+      저희 두 사람의 가장 밝은 순간을<br>
+      함께 비춰 주세요.
     </p>
     <div class="parents">
       <span>김바다 · 박하늘의 장남 <strong>온유</strong></span>
@@ -410,6 +706,7 @@
 
   <!-- 예식 안내 -->
   <section class="when-where reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">CEREMONY</p>
     <p class="big-date">2027년 8월 28일 토요일</p>
     <p class="time">낮 12시 30분 · JW컨벤션 울산 루미에르홀</p>
@@ -418,8 +715,8 @@
       <caption>AOÛT 2027</caption>
       <thead>
         <tr>
-          <th class="sun" scope="col">일</th><th scope="col">월</th><th scope="col">화</th>
-          <th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+          <th class="sun" scope="col">S</th><th scope="col">M</th><th scope="col">T</th>
+          <th scope="col">W</th><th scope="col">T</th><th scope="col">F</th><th scope="col">S</th>
         </tr>
       </thead>
       <tbody>
@@ -435,29 +732,32 @@
   </section>
 
   <!-- 갤러리 -->
-  <section class="reveal">
+  <section class="gallery reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">MOMENTS</p>
+    <div class="gallery-hero">PHOTO 01</div>
     <div class="gallery-grid">
-      <div class="ph">사진 1</div>
-      <div class="ph">사진 2</div>
-      <div class="ph">사진 3</div>
-      <div class="ph">사진 4</div>
+      <div class="ph">PHOTO 02</div>
+      <div class="ph">PHOTO 03</div>
+      <div class="ph">PHOTO 04</div>
+      <div class="ph">PHOTO 05</div>
     </div>
     <p class="gallery-note">웨딩 촬영 후 사진이 들어갈 자리입니다.</p>
   </section>
 
   <!-- 오시는 길 -->
-  <section class="reveal">
+  <section class="where reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">DIRECTIONS</p>
     <h2>JW컨벤션 울산 루미에르홀</h2>
     <div class="map-ph">
       <span>지도 영역</span>
-      <span>울산광역시 북구 진장유통로 35</span>
+      <span class="addr">울산광역시 북구 진장유통로 35</span>
       <span>TEL 052-289-9851 · 배포 시 카카오맵 연동</span>
     </div>
     <dl class="directions">
       <div>
-        <dt>버스</dt>
+        <dt>BUS</dt>
         <dd>태화강역에서 701번 · 916번 버스 승차 후 우편집중국 하차</dd>
       </div>
       <div>
@@ -465,14 +765,15 @@
         <dd>KTX 울산역에서 5003번 리무진버스 → 병영사거리 하차 후 택시 약 5분</dd>
       </div>
       <div>
-        <dt>자가용</dt>
-        <dd>울산IC → 북부순환로 → 진장사거리 우회전 · 2시간 30분 무료 주차 (건물 뒤편 및 진장디플렉스 주차장)</dd>
+        <dt>CAR</dt>
+        <dd>울산IC → 북부순환로 → 진장사거리 우회전<br>2시간 30분 무료 주차 (건물 뒤편 및 진장디플렉스 주차장)</dd>
       </div>
     </dl>
   </section>
 
   <!-- 마음 전하실 곳 -->
-  <section class="reveal">
+  <section class="gift reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">WITH LOVE</p>
     <div class="accounts">
       <div class="account-card">
@@ -493,16 +794,17 @@
   </section>
 
   <!-- 연락처 -->
-  <section class="reveal">
+  <section class="contact reveal">
+    <div class="ornament" aria-hidden="true"><i></i></div>
     <p class="eyebrow">CONTACT</p>
     <div class="contacts">
       <div class="contact-card">
-        <p class="who">신랑</p>
+        <p class="who">GROOM</p>
         <p class="name">김온유</p>
         <a href="tel:01000000000">전화하기</a>
       </div>
       <div class="contact-card">
-        <p class="who">신부</p>
+        <p class="who">BRIDE</p>
         <p class="name">이봄</p>
         <a href="tel:01011111111">전화하기</a>
       </div>
@@ -511,20 +813,48 @@
 
   <footer>
     <p class="lumiere-word">LUMIÈRE</p>
+    <div class="dot" aria-hidden="true"></div>
     <p>가장 밝은 정오의 빛 아래에서, 온유 그리고 봄</p>
   </footer>
 </div>
 
 <script>
+  // 표지 등장 시퀀스
+  window.addEventListener("load", function () {
+    document.body.classList.add("loaded");
+  });
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // D-day 카운터 (예식일: 2027-08-28 12:30 KST)
   (function () {
     var wedding = new Date("2027-08-28T12:30:00+09:00");
     var days = Math.ceil((wedding - new Date()) / 86400000);
     var el = document.getElementById("dday");
-    if (days > 0) el.innerHTML = "예식까지 <strong>" + days + "</strong>일 남았습니다";
-    else if (days === 0) el.innerHTML = "<strong>오늘</strong>, 결혼합니다";
-    else el.innerHTML = "결혼한 지 <strong>" + Math.abs(days) + "</strong>일 되었습니다";
+    function render(n) {
+      el.innerHTML = "예식까지 <strong>" + n + "</strong>일 남았습니다";
+    }
+    if (days > 0) {
+      if (reduceMotion) { render(days); return; }
+      var start = null, dur = 1400;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        render(Math.round(days * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      var seen = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { requestAnimationFrame(step); seen.disconnect(); }
+      }, { threshold: 0.5 });
+      seen.observe(el);
+    } else if (days === 0) {
+      el.innerHTML = "<strong>오늘</strong>, 결혼합니다";
+    } else {
+      el.innerHTML = "결혼한 지 <strong>" + Math.abs(days) + "</strong>일 되었습니다";
+    }
   })();
 
+  // 계좌번호 복사
   document.querySelectorAll(".copy-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var num = btn.getAttribute("data-account");
@@ -550,8 +880,9 @@
     });
   });
 
+  // 스크롤 리빌
   (function () {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (reduceMotion) {
       document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("shown"); });
       return;
     }
@@ -561,6 +892,65 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  })();
+
+  // 표지 빛 입자 (보케)
+  (function () {
+    if (reduceMotion) return;
+    var canvas = document.getElementById("bokeh");
+    var ctx = canvas.getContext("2d");
+    var cover = canvas.parentElement;
+    var particles = [];
+    var running = true;
+
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = cover.clientWidth * dpr;
+      canvas.height = cover.clientHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    for (var i = 0; i < 22; i++) {
+      particles.push({
+        x: Math.random() * cover.clientWidth,
+        y: Math.random() * cover.clientHeight,
+        r: 1.2 + Math.random() * 2.8,
+        vy: -(0.08 + Math.random() * 0.2),
+        vx: (Math.random() - 0.5) * 0.12,
+        a: 0.12 + Math.random() * 0.3,
+        ph: Math.random() * Math.PI * 2
+      });
+    }
+
+    function frame(ts) {
+      if (!running) return;
+      var w = cover.clientWidth, h = cover.clientHeight;
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach(function (p) {
+        p.y += p.vy;
+        p.x += p.vx + Math.sin(ts / 2400 + p.ph) * 0.12;
+        if (p.y < -6) { p.y = h + 6; p.x = Math.random() * w; }
+        var glow = p.a * (0.7 + 0.3 * Math.sin(ts / 1100 + p.ph));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(214, 182, 118," + glow.toFixed(3) + ")";
+        ctx.shadowColor = "rgba(214, 182, 118, 0.8)";
+        ctx.shadowBlur = 7;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    // 표지가 화면 밖이면 렌더 정지
+    new IntersectionObserver(function (es) {
+      var vis = es[0].isIntersecting;
+      if (vis && !running) { running = true; requestAnimationFrame(frame); }
+      else if (!vis) running = false;
+    }, { threshold: 0 }).observe(cover);
   })();
 </script>
 </body>
