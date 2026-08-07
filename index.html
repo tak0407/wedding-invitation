@@ -69,26 +69,13 @@
 
   section { padding: 84px 30px; position: relative; }
 
-  /* ── 섹션 오너먼트 ─────────────────────────── */
-  .ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-  .ornament::before, .ornament::after {
-    content: "";
-    height: 1px;
-    width: 44px;
-    background: linear-gradient(to right, transparent, var(--brass-soft));
-  }
-  .ornament::after { background: linear-gradient(to left, transparent, var(--brass-soft)); }
-  .ornament .fleuron {
-    font-family: var(--serif-la);
-    font-size: 17px;
-    line-height: 1;
-    color: var(--brass);
+  /* ── 섹션 디바이더 — 생성 일러스트 ────────── */
+  .divider-art {
+    display: block;
+    width: min(238px, 64vw);
+    height: auto;
+    margin: 0 auto 18px;
+    filter: saturate(0.92);
   }
   .eyebrow {
     font-family: var(--serif-la);
@@ -317,31 +304,13 @@
   body.loaded .cover .fg.seq-4 { transition-delay: 0.75s; }
   body.loaded .cover .fg.seq-5 { transition-delay: 1.05s; }
 
-  /* ── 블러쉬 로즈 갈란드 — 홀의 꽃길 ────────── */
-  .roses {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    margin-top: 30px;
-  }
-  .roses .leaf {
-    width: 13px; height: 5px;
-    border-radius: 50%;
-    background: linear-gradient(#A9BC9F, #8CA382);
-  }
-  .roses .leaf.l { transform: rotate(-26deg); }
-  .roses .leaf.r { transform: rotate(26deg); }
-  .roses .rose {
-    width: 13px; height: 13px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 32%, #F6E3E4, var(--blush) 52%, var(--blush-deep) 96%);
-    box-shadow: inset 0 0 3px rgba(194, 138, 147, 0.6);
-  }
-  .roses .rose.s { width: 9px; height: 9px; }
-  .roses .rose.lav {
-    background: radial-gradient(circle at 40% 32%, #EEE6F0, #D5C4DC 52%, #B49CC0 96%);
-    box-shadow: inset 0 0 3px rgba(160, 132, 175, 0.5);
+  /* ── 블러쉬 로즈 갈란드 — 생성 일러스트 ───── */
+  .garland-art {
+    display: block;
+    width: min(250px, 66vw);
+    height: auto;
+    margin: 30px auto 0;
+    filter: saturate(0.92);
   }
 
   /* ═══ 인터루드 ═══════════════════════════════ */
@@ -720,14 +689,12 @@
       두 사람이 서약합니다.
       <span class="la">la lumière — the light</span>
     </p>
-    <div class="roses" aria-hidden="true">
-      <span class="leaf l"></span><span class="rose s lav"></span><span class="rose"></span><span class="rose s"></span><span class="leaf r"></span>
-    </div>
+    <img class="garland-art" src="assets/rose-garland.webp" alt="" width="800" height="296">
   </div>
 
   <!-- 인사말 -->
   <section class="greeting reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">INVITATION</p>
     <p>
       통창으로 드는 정오의 햇살처럼<br>
@@ -745,7 +712,7 @@
 
   <!-- 예식 안내 -->
   <section class="when-where reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">CEREMONY</p>
     <p class="big-date">2027년 8월 28일 토요일</p>
     <p class="time">낮 12시 30분 · JW컨벤션 울산 루미에르홀</p>
@@ -775,7 +742,7 @@
 
   <!-- 갤러리 -->
   <section class="gallery reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">MOMENTS</p>
     <div class="gallery-hero">PHOTO 01</div>
     <div class="gallery-grid">
@@ -789,7 +756,7 @@
 
   <!-- 오시는 길 -->
   <section class="where reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">DIRECTIONS</p>
     <h2>JW컨벤션 울산 루미에르홀</h2>
     <div class="map-ph">
@@ -815,7 +782,7 @@
 
   <!-- 마음 전하실 곳 -->
   <section class="gift reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">WITH LOVE</p>
     <div class="accounts">
       <div class="account-card">
@@ -837,7 +804,7 @@
 
   <!-- 연락처 -->
   <section class="contact reveal">
-    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
+    <img class="divider-art" src="assets/divider.webp" alt="" width="900" height="116">
     <p class="eyebrow">CONTACT</p>
     <div class="contacts">
       <div class="contact-card">
@@ -854,9 +821,7 @@
   </section>
 
   <footer>
-    <div class="roses" aria-hidden="true" style="margin: 0 0 22px;">
-      <span class="leaf l"></span><span class="rose s"></span><span class="rose lav"></span><span class="rose s"></span><span class="leaf r"></span>
-    </div>
+    <img class="garland-art" src="assets/rose-garland.webp" alt="" width="800" height="296" style="margin: 0 auto 24px; width: min(210px, 56vw);">
     <p class="lumiere-word">LUMIÈRE</p>
     <div class="dot" aria-hidden="true"></div>
     <p>가장 밝은 정오의 빛 아래에서, 온유 그리고 봄</p>
