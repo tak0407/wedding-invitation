@@ -83,10 +83,11 @@
     background: linear-gradient(to right, transparent, var(--brass-soft));
   }
   .ornament::after { background: linear-gradient(to left, transparent, var(--brass-soft)); }
-  .ornament i {
-    width: 5px; height: 5px;
-    background: var(--brass);
-    transform: rotate(45deg);
+  .ornament .fleuron {
+    font-family: var(--serif-la);
+    font-size: 17px;
+    line-height: 1;
+    color: var(--brass);
   }
   .eyebrow {
     font-family: var(--serif-la);
@@ -146,36 +147,89 @@
   }
   .cover .fg { position: relative; z-index: 1; }
 
-  /* 샹들리에 */
+  /* 천장 스트링 라이트 — 실제 홀 천장의 전구 라인 */
+  .string-lights {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 19px;
+    z-index: 1;
+  }
+  .string-lights i {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFF8E4, var(--brass-soft));
+    box-shadow: 0 0 9px rgba(201, 174, 126, 0.85);
+    animation: twinkle 2.8s ease-in-out infinite;
+  }
+  /* 완만한 드리움 곡선 */
+  .string-lights i:nth-child(1), .string-lights i:nth-child(11) { transform: translateY(0); }
+  .string-lights i:nth-child(2), .string-lights i:nth-child(10) { transform: translateY(4px);  animation-delay: 0.3s; }
+  .string-lights i:nth-child(3), .string-lights i:nth-child(9)  { transform: translateY(7px);  animation-delay: 0.6s; }
+  .string-lights i:nth-child(4), .string-lights i:nth-child(8)  { transform: translateY(9px);  animation-delay: 0.9s; }
+  .string-lights i:nth-child(5), .string-lights i:nth-child(7)  { transform: translateY(10.5px); animation-delay: 1.2s; }
+  .string-lights i:nth-child(6) { transform: translateY(11px); animation-delay: 1.5s; }
+
+  /* 샹들리에 — 크리스탈 캐스케이드 */
   .chandelier {
+    position: relative;
     display: flex;
     justify-content: center;
-    gap: 24px;
-    margin-bottom: 42px;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 48px;
+    padding-top: 12px;
+  }
+  /* 상단 캐노피 아치 */
+  .chandelier::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 148px; height: 20px;
+    margin-left: -74px;
+    border: 1px solid var(--brass-soft);
+    border-bottom: none;
+    border-radius: 999px 999px 0 0;
+    opacity: 0.55;
   }
   .chandelier .drop {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     transform-origin: top center;
     animation: sway 6s ease-in-out infinite alternate;
   }
   .chandelier .drop:nth-child(even) { animation-delay: -3s; }
   @keyframes sway {
-    from { transform: rotate(-2deg); }
-    to   { transform: rotate(2deg); }
+    from { transform: rotate(-1.6deg); }
+    to   { transform: rotate(1.6deg); }
   }
   .chandelier .drop::before {
     content: "";
     width: 1px;
     background: linear-gradient(rgba(176, 141, 87, 0.25), var(--brass));
   }
-  .chandelier .drop:nth-child(1)::before { height: 28px; }
-  .chandelier .drop:nth-child(2)::before { height: 50px; }
-  .chandelier .drop:nth-child(3)::before { height: 68px; }
-  .chandelier .drop:nth-child(4)::before { height: 50px; }
-  .chandelier .drop:nth-child(5)::before { height: 28px; }
+  .chandelier .drop:nth-child(1)::before { height: 12px; }
+  .chandelier .drop:nth-child(2)::before { height: 24px; }
+  .chandelier .drop:nth-child(3)::before { height: 38px; }
+  .chandelier .drop:nth-child(4)::before { height: 52px; }
+  .chandelier .drop:nth-child(5)::before { height: 62px; }
+  .chandelier .drop:nth-child(6)::before { height: 52px; }
+  .chandelier .drop:nth-child(7)::before { height: 38px; }
+  .chandelier .drop:nth-child(8)::before { height: 24px; }
+  .chandelier .drop:nth-child(9)::before { height: 12px; }
+  /* 중간 크리스탈 */
+  .chandelier .drop b {
+    width: 5px; height: 5px;
+    background: linear-gradient(135deg, #FFF3D8, var(--brass-soft));
+    transform: rotate(45deg);
+    box-shadow: 0 0 6px rgba(201, 174, 126, 0.55);
+  }
+  /* 말단 크리스탈 볼 */
   .chandelier .drop i {
     width: 8px; height: 8px;
     border-radius: 50%;
@@ -183,10 +237,14 @@
     box-shadow: 0 0 14px rgba(201, 174, 126, 0.7);
     animation: twinkle 3.4s ease-in-out infinite;
   }
-  .chandelier .drop:nth-child(2) i { animation-delay: 0.6s; }
-  .chandelier .drop:nth-child(3) i { animation-delay: 1.2s; }
-  .chandelier .drop:nth-child(4) i { animation-delay: 1.8s; }
-  .chandelier .drop:nth-child(5) i { animation-delay: 2.4s; }
+  .chandelier .drop:nth-child(2) i { animation-delay: 0.4s; }
+  .chandelier .drop:nth-child(3) i { animation-delay: 0.8s; }
+  .chandelier .drop:nth-child(4) i { animation-delay: 1.2s; }
+  .chandelier .drop:nth-child(5) i { animation-delay: 1.6s; }
+  .chandelier .drop:nth-child(6) i { animation-delay: 2.0s; }
+  .chandelier .drop:nth-child(7) i { animation-delay: 2.4s; }
+  .chandelier .drop:nth-child(8) i { animation-delay: 2.8s; }
+  .chandelier .drop:nth-child(9) i { animation-delay: 3.2s; }
   @keyframes twinkle {
     0%, 100% { box-shadow: 0 0 8px rgba(201, 174, 126, 0.45); }
     50%      { box-shadow: 0 0 18px rgba(201, 174, 126, 0.95); }
@@ -216,6 +274,35 @@
     border: 1px solid rgba(176, 141, 87, 0.35);
     border-radius: 999px 999px 0 0;
     pointer-events: none;
+  }
+  /* 키스톤 */
+  .arch-wrap::after {
+    content: "";
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    width: 7px; height: 7px;
+    margin-left: -3.5px;
+    background: var(--brass);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(201, 174, 126, 0.6);
+  }
+  /* 내부 헤어라인 */
+  .arch-window .hairline {
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(176, 141, 87, 0.4);
+    border-radius: 999px 999px 0 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+  /* 기단 몰딩 */
+  .arch-plinth {
+    width: min(322px, 86vw);
+    margin: 12px auto 0;
+    height: 6px;
+    border-top: 1px solid var(--brass-soft);
+    border-bottom: 1px solid rgba(176, 141, 87, 0.35);
   }
   /* 창살 */
   .arch-window .mullions {
@@ -334,6 +421,33 @@
   body.loaded .cover .fg.seq-4 { transition-delay: 0.75s; }
   body.loaded .cover .fg.seq-5 { transition-delay: 1.05s; }
 
+  /* ── 블러쉬 로즈 갈란드 — 홀의 꽃길 ────────── */
+  .roses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 30px;
+  }
+  .roses .leaf {
+    width: 13px; height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(#A9BC9F, #8CA382);
+  }
+  .roses .leaf.l { transform: rotate(-26deg); }
+  .roses .leaf.r { transform: rotate(26deg); }
+  .roses .rose {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 32%, #F6E3E4, var(--blush) 52%, var(--blush-deep) 96%);
+    box-shadow: inset 0 0 3px rgba(194, 138, 147, 0.6);
+  }
+  .roses .rose.s { width: 9px; height: 9px; }
+  .roses .rose.lav {
+    background: radial-gradient(circle at 40% 32%, #EEE6F0, #D5C4DC 52%, #B49CC0 96%);
+    box-shadow: inset 0 0 3px rgba(160, 132, 175, 0.5);
+  }
+
   /* ═══ 인터루드 ═══════════════════════════════ */
   .interlude {
     padding: 96px 30px;
@@ -396,10 +510,29 @@
   }
   .when-where .time { color: var(--ink-soft); font-size: 15px; margin-bottom: 48px; }
 
+  /* 달력 오네이트 프레임 */
+  .calendar-frame {
+    position: relative;
+    max-width: 356px;
+    margin: 0 auto 44px;
+    padding: 28px 16px 24px;
+    border: 1px solid var(--vein);
+  }
+  .calendar-frame > i {
+    position: absolute;
+    width: 5px; height: 5px;
+    background: var(--brass);
+    transform: rotate(45deg);
+  }
+  .calendar-frame > i:nth-child(1) { top: -3px; left: -3px; }
+  .calendar-frame > i:nth-child(2) { top: -3px; right: -3px; }
+  .calendar-frame > i:nth-child(3) { bottom: -3px; left: -3px; }
+  .calendar-frame > i:nth-child(4) { bottom: -3px; right: -3px; }
+
   .calendar {
     width: 100%;
     max-width: 322px;
-    margin: 0 auto 44px;
+    margin: 0 auto;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
   }
@@ -488,6 +621,7 @@
     text-indent: 0.32em;
     color: var(--ink-soft);
     margin-bottom: 14px;
+    box-shadow: inset 0 0 0 8px var(--ivory), inset 0 0 0 9px rgba(176, 141, 87, 0.35);
   }
   .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .gallery-grid .ph {
@@ -569,11 +703,21 @@
   .contact { border-top: 1px solid var(--vein); }
   .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .contact-card {
+    position: relative;
     border: 1px solid var(--vein);
     padding: 26px 16px;
     text-align: center;
     background: rgba(253, 251, 246, 0.85);
   }
+  .contact-card::before, .contact-card::after {
+    content: "";
+    position: absolute;
+    width: 12px; height: 12px;
+    border-color: var(--brass-soft);
+    border-style: solid;
+  }
+  .contact-card::before { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
+  .contact-card::after { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
   .contact-card .who {
     font-family: var(--serif-la);
     font-size: 11px;
@@ -634,7 +778,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .cover .fg { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .rays, .chandelier .drop, .chandelier .drop i,
+    .rays, .chandelier .drop, .chandelier .drop i, .string-lights i,
     .calendar td.dday::after, .scroll-hint::before { animation: none !important; }
     html { scroll-behavior: auto; }
   }
@@ -648,15 +792,23 @@
   <section class="cover">
     <div class="rays" aria-hidden="true"></div>
     <canvas id="bokeh" aria-hidden="true"></canvas>
+    <div class="string-lights" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
     <div class="fg seq-1 chandelier" aria-hidden="true">
-      <span class="drop"><i></i></span>
-      <span class="drop"><i></i></span>
-      <span class="drop"><i></i></span>
-      <span class="drop"><i></i></span>
-      <span class="drop"><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
+      <span class="drop"><b></b><i></i></span>
     </div>
     <div class="fg seq-2 arch-wrap">
       <div class="arch-window">
+        <div class="hairline" aria-hidden="true"></div>
         <div class="mullions" aria-hidden="true"></div>
         <div class="garden" aria-hidden="true"></div>
         <div class="inner">
@@ -668,6 +820,7 @@
           </p>
         </div>
       </div>
+      <div class="arch-plinth" aria-hidden="true"></div>
     </div>
     <p class="fg seq-3 date-line">2027 · 08 · 28</p>
     <p class="fg seq-4 venue-line">
@@ -684,11 +837,14 @@
       두 사람이 서약합니다.
       <span class="la">la lumière — the light</span>
     </p>
+    <div class="roses" aria-hidden="true">
+      <span class="leaf l"></span><span class="rose s lav"></span><span class="rose"></span><span class="rose s"></span><span class="leaf r"></span>
+    </div>
   </div>
 
   <!-- 인사말 -->
   <section class="greeting reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">INVITATION</p>
     <p>
       통창으로 드는 정오의 햇살처럼<br>
@@ -706,11 +862,13 @@
 
   <!-- 예식 안내 -->
   <section class="when-where reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">CEREMONY</p>
     <p class="big-date">2027년 8월 28일 토요일</p>
     <p class="time">낮 12시 30분 · JW컨벤션 울산 루미에르홀</p>
 
+    <div class="calendar-frame">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
     <table class="calendar" aria-label="2027년 8월 달력">
       <caption>AOÛT 2027</caption>
       <thead>
@@ -727,13 +885,14 @@
         <tr><td class="sun">29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table>
+    </div>
 
     <p class="dday-counter" id="dday">예식까지 <strong>—</strong>일 남았습니다</p>
   </section>
 
   <!-- 갤러리 -->
   <section class="gallery reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">MOMENTS</p>
     <div class="gallery-hero">PHOTO 01</div>
     <div class="gallery-grid">
@@ -747,7 +906,7 @@
 
   <!-- 오시는 길 -->
   <section class="where reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">DIRECTIONS</p>
     <h2>JW컨벤션 울산 루미에르홀</h2>
     <div class="map-ph">
@@ -773,7 +932,7 @@
 
   <!-- 마음 전하실 곳 -->
   <section class="gift reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">WITH LOVE</p>
     <div class="accounts">
       <div class="account-card">
@@ -795,7 +954,7 @@
 
   <!-- 연락처 -->
   <section class="contact reveal">
-    <div class="ornament" aria-hidden="true"><i></i></div>
+    <div class="ornament" aria-hidden="true"><span class="fleuron">❦</span></div>
     <p class="eyebrow">CONTACT</p>
     <div class="contacts">
       <div class="contact-card">
@@ -812,6 +971,9 @@
   </section>
 
   <footer>
+    <div class="roses" aria-hidden="true" style="margin: 0 0 22px;">
+      <span class="leaf l"></span><span class="rose s"></span><span class="rose lav"></span><span class="rose s"></span><span class="leaf r"></span>
+    </div>
     <p class="lumiere-word">LUMIÈRE</p>
     <div class="dot" aria-hidden="true"></div>
     <p>가장 밝은 정오의 빛 아래에서, 온유 그리고 봄</p>
