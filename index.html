@@ -245,9 +245,13 @@
   }
 
   /* 아치 통창 — 이중 프레임 */
-  .arch-wrap { position: relative; margin-bottom: 46px; }
+  .arch-wrap {
+    position: relative;
+    width: min(282px, 76vw);   /* 래퍼 = 창 너비 (기단이 래퍼를 넓혀 창이 좌측 정렬되던 버그 수정) */
+    margin: 0 auto 46px;
+  }
   .arch-window {
-    width: min(282px, 76vw);
+    width: 100%;
     aspect-ratio: 3 / 4.5;
     border: 1px solid var(--brass);
     border-radius: 999px 999px 0 0;
@@ -290,10 +294,10 @@
     pointer-events: none;
     z-index: 2;
   }
-  /* 기단 몰딩 */
+  /* 기단 몰딩 — 창보다 좌우 20px씩 넓게, 중앙 유지 */
   .arch-plinth {
-    width: min(322px, 86vw);
-    margin: 12px auto 0;
+    width: calc(100% + 40px);
+    margin: 12px 0 0 -20px;
     height: 6px;
     border-top: 1px solid var(--brass-soft);
     border-bottom: 1px solid rgba(176, 141, 87, 0.35);
