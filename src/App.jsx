@@ -158,17 +158,7 @@ function Cover() {
           <i key={index} />
         ))}
       </div>
-      <motion.div className="fg seq-1 chandelier-art" aria-hidden="true" {...entrance(0.45)}>
-        <motion.img
-          src={asset("chandelier.webp")}
-          alt=""
-          width="640"
-          height="427"
-          animate={reduceMotion ? undefined : { y: [0, -5, 0], rotate: [-0.18, 0.18, -0.18] }}
-          transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-        />
-      </motion.div>
-      <motion.div className="fg seq-2 arch-art" {...entrance(0.7)}>
+      <motion.div className="fg seq-1 arch-art" {...entrance(0.45)}>
         <img src={asset("arch-window.webp")} alt="" width="567" height="1270" />
         <div className="inner">
           <p className="small-word">빛이 먼저 닿는 곳</p>
@@ -179,15 +169,15 @@ function Cover() {
           </h1>
         </div>
       </motion.div>
-      <motion.p className="fg seq-3 date-line" {...entrance(1.0)}>
+      <motion.p className="fg seq-2 date-line" {...entrance(0.75)}>
         2027 · 08 · 28
       </motion.p>
-      <motion.p className="fg seq-4 venue-line" {...entrance(1.15)}>
+      <motion.p className="fg seq-3 venue-line" {...entrance(0.95)}>
         <strong>토요일 낮 12시 30분</strong>
         <br />
         JW컨벤션 울산 루미에르홀
       </motion.p>
-      <motion.div className="fg seq-5 scroll-hint" aria-hidden="true" {...entrance(1.35)}>
+      <motion.div className="fg seq-4 scroll-hint" aria-hidden="true" {...entrance(1.15)}>
         <span>SCROLL</span>
       </motion.div>
     </section>
