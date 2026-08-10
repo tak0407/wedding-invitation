@@ -153,11 +153,6 @@ function Cover() {
       <BokehCanvas />
       <div className="veil" aria-hidden="true" />
       <div className="sunbeam" aria-hidden="true" />
-      <div className="string-lights" aria-hidden="true">
-        {Array.from({ length: 11 }).map((_, index) => (
-          <i key={index} />
-        ))}
-      </div>
       <motion.div className="fg seq-1 arch-art" {...entrance(0.45)}>
         <img src={asset("arch-window.webp")} alt="" width="567" height="1270" />
         <div className="inner">
